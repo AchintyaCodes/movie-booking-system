@@ -18,13 +18,6 @@ Netflix-style movie booking platform with interactive seat selection & modern gl
 ## 🎬 Live Demo
 
 👉 **[Launch CineVault](https://movie-booking-system.streamlit.app/)**
----
-
-## ⚡ App Preview
-
-<p align="center">
-  <img src="https://image.tmdb.org/t/p/original/rAiYKRLSXccP66vST1nq1YZvzsz.jpg" width="90%">
-</p>
 
 ---
 
@@ -77,21 +70,64 @@ Traditional movie booking systems often feel static and dated. Users expect:
 - Developed a reactive grid where seats are dynamically identified and stored.
 - Applied CSS-based button styling to mimic actual cinema seating.
 
-### 4️⃣ Security Integration
-- Integrated `bcrypt` for one-way hashing of user credentials.
-- Ensured sensitive data is never stored in plain text.
+---
+
+# 📊 Screenshots
+
+### 🎞️ Netflix Intro (Splash)
+<p align="center">
+  <img src="assets/splash.png" width="90%">
+</p>
 
 ---
 
-# 📊 Documentation
-
-### 🏠 Dashboard
-The landing page greets users with a high-definition Hero section and a glassmorphic grid of currently showing movies.
+### 🌟 New & Popular
+<p align="center">
+  <img src="assets/popular.png" width="90%">
+</p>
 
 ---
 
-### 💺 Seating Grid
-The seating engine allows users to visually pick their spots, calculating totals on the fly before finalizing the booking with a "Balloons" celebration.
+### 🎬 Now Showing
+<p align="center">
+  <img src="assets/grid.png" width="90%">
+</p>
+
+---
+
+### 💺 Visual Seat Selection
+<p align="center">
+  <img src="assets/seats.png" width="90%">
+</p>
+
+---
+
+### 💳 Secure Checkout
+<p align="center">
+  <img src="assets/checkout.png" width="90%">
+</p>
+
+---
+
+### ✅ Booking Success
+<p align="center">
+  <img src="assets/success.png" width="90%">
+</p>
+
+---
+
+### 🔐 User Authentication
+<p align="center">
+  <img src="assets/login.png" width="45%">
+  <img src="assets/register.png" width="45%">
+</p>
+
+---
+
+### ⚙️ Admin Dashboard
+<p align="center">
+  <img src="assets/admin.png" width="90%">
+</p>
 
 ---
 
@@ -130,8 +166,7 @@ movie-booking-system/
 ├── database.py        # SQLite Migration & Logic
 ├── auth.py            # Security & Session Auth
 │
-├── static/
-│   └── uploads/       # Movie Posters (Interstellar, etc.)
+├── assets/            # Project Screenshots (README only)
 │
 ├── legacy/            # Original Node.js Project Files
 │   ├── app.js         # Express Entry Point
