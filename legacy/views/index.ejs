@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- 🔐 AUTH NAVBAR -->
+<div style="position:absolute; top:20px; right:30px; display:flex; gap:12px; z-index:1000;">
+  
+  <% if (!userId) { %>
+    <a href="/login">
+      <button style="padding:8px 16px; border-radius:6px; border:none; cursor:pointer;">
+        Login
+      </button>
+    </a>
+
+    <a href="/register">
+      <button style="padding:8px 16px; border-radius:6px; border:none; cursor:pointer;">
+        Register
+      </button>
+    </a>
+
+  <% } else { %>
+
+    <a href="/bookings/my">
+      <button style="padding:8px 16px; border-radius:6px; border:none; cursor:pointer;">
+        My Bookings
+      </button>
+    </a>
+
+    <a href="/logout">
+      <button style="padding:8px 16px; border-radius:6px; border:none; cursor:pointer;">
+        Logout
+      </button>
+    </a>
+
+  <% } %>
+
+</div>
+
+
+<!-- 🎬 TITLE -->
+<h1 style="text-align:center; margin-top:100px;">🎬 Movies</h1>
+
+
+<!-- 🎥 MOVIES GRID -->
+<div class="movie-grid">
+
+  <% movies.forEach(movie => { %>
+
+    <div class="movie-card">
+      <img src="/uploads/<%= movie.poster %>" alt="<%= movie.title %>">
+
+      <div class="overlay">
+        <h3><%= movie.title %></h3>
+        <p><%= movie.genre %></p>
+
+        <a href="/movies/<%= movie.movie_id %>">
+          Book Now
+        </a>
+      </div>
+    </div>
+
+  <% }) %>
+
+</div>
+
+</body>
+</html>

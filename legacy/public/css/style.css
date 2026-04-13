@@ -1,0 +1,207 @@
+:root {
+  --primary-red: #e50914;
+  --dark-bg: #141414;
+  --card-bg: #181818;
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --hover-bg: #2a2a2a;
+  --transition-speed: 0.3s;
+  --border-radius: 4px;
+  --navbar-height: 70px;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  background: rgba(20,20,20,0.98);
+  padding: 0 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--primary-red);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color var(--transition-speed);
+}
+.nav-links a:hover {
+  color: var(--primary-red);
+}
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;   /* ✅ CENTER EVERYTHING */
+  align-items: center;
+  margin-top: 100px;
+}
+
+.movie-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 220px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  position: relative;
+  cursor: pointer;
+}
+.movie-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.9);
+  z-index: 2;
+}
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+.movie-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  background: linear-gradient(to top, rgba(20,20,20,0.95), rgba(20,20,20,0.2));
+  color: var(--text-primary);
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+  padding: 1rem;
+}
+.movie-card:hover .overlay {
+  opacity: 1;
+}
+
+.form-container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  max-width: 400px;
+  margin: 100px auto;
+}
+
+.form-container label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.form-container input, .form-container select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #333;
+  border-radius: var(--border-radius);
+  background: #222;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed);
+}
+.form-container input:focus, .form-container select:focus {
+  border-color: var(--primary-red);
+  outline: none;
+}
+.form-container .button {
+  width: 100%;
+}
+
+.button {
+  background: var(--primary-red);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.button:hover, .button:focus {
+  background: #b0060f;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(229,9,20,0.3);
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 32px);
+  gap: 8px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.seat {
+  width: 32px;
+  height: 32px;
+  background: #222;
+  border-radius: 8px 8px 0 0;
+  border: 2px solid #333;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  cursor: pointer;
+  position: relative;
+}
+.seat.available:hover {
+  background: #444;
+  transform: scale(1.15);
+}
+.seat.selected {
+  background: #16df16;
+  border-color: #16df16;
+}
+.seat.booked {
+  background: #555;
+  border-color: #888;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.seat-label {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.admin-dashboard .stats-cards {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.admin-dashboard .card {
+  background: var(--card-bg);
+  color: var(--primary-red);
+  font-size: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+@media (max-width: 768px) {
+  .movie-grid { flex-direction: column; align-items: center; }
+  .admin-dashboard .stats-cards { flex-direction: column; }
+}

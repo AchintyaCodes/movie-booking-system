@@ -1,0 +1,18 @@
+<h1>Select Show</h1>
+
+<% if (shows.length === 0) { %>
+  <p>No shows available</p>
+<% } %>
+
+<% shows.forEach(show => { %>
+  <div style="margin: 20px; padding: 10px; border: 1px solid white;">
+    
+    <p>Show ID: <%= show.show_id %></p>
+    <p>Start Time: <%= show.start_time %></p>
+
+    <a href="/seats/<%= show.show_id %>">
+      <button>Select Seats</button>
+    </a>
+
+  </div>
+<% }) %>

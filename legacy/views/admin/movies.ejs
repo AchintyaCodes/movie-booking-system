@@ -1,0 +1,26 @@
+<% layout('layout') %>
+<h2>Manage Movies</h2>
+<table>
+  <thead>
+    <tr><th>Poster</th><th>Title</th><th>Genre</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    <% movies.forEach(movie => { %>
+      <tr>
+        <td><img src="/uploads/<%= movie.poster %>" width="50"></td>
+        <td><%= movie.title %></td>
+        <td><%= movie.genre %></td>
+        <td>
+          <form action="/admin/movies/delete/<%= movie.movie_id %>" method="POST">
+            <button class="button" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<form action="/admin/movies/add" method="POST" enctype="multipart/form-data">
+  <input type="text" name="title" placeholder="Title" required>
+  <input type="file" name="poster" required>
+  <button class="button" type="submit">Add Movie</button>
+</form>

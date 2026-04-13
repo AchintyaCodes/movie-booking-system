@@ -1,0 +1,10 @@
+<h1>My Bookings</h1>
+
+<% bookings.forEach(b => { %>
+  <div>
+    <h3><%= b.title %></h3>
+    <p>Time: <%= b.start_time %></p>
+    <p>Seats: <%= b.seats %></p>
+    <hr>
+  </div>
+<% }) %>

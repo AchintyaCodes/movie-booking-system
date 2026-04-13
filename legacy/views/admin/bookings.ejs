@@ -1,0 +1,19 @@
+<% layout('layout') %>
+<h2>All Bookings</h2>
+<table>
+  <thead>
+    <tr><th>User</th><th>Movie</th><th>Theatre</th><th>Screen</th><th>Date</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <% bookings.forEach(b => { %>
+      <tr>
+        <td><%= b.first_name %> <%= b.last_name %></td>
+        <td><%= b.title %></td>
+        <td><%= b.theatre %></td>
+        <td><%= b.screen_no %></td>
+        <td><%= b.start_time %></td>
+        <td><%= b.status %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

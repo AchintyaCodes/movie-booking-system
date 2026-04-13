@@ -1,0 +1,24 @@
+<h1>Select Seats</h1>
+
+<form method="POST" action="/seats/book">
+  
+  <!-- IMPORTANT -->
+  <input type="hidden" name="show_id" value="<%= showId %>">
+
+  <% seats.forEach(seat => { %>
+    <div>
+      <% if (seat.status === 'booked') { %>
+        ❌ <%= seat.row_name %><%= seat.seat_number %> (Booked)
+      <% } else { %>
+        <label>
+          <input type="checkbox" name="seats" value="<%= seat.seat_id %>">
+          <%= seat.row_name %><%= seat.seat_number %>
+        </label>
+      <% } %>
+    </div>
+  <% }) %>
+
+  <br>
+  <button type="submit">Book Seats</button>
+
+</form>

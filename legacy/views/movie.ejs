@@ -1,0 +1,88 @@
+
+<!-- 🔐 AUTH NAVBAR -->
+<div style="position:absolute; top:20px; right:30px; display:flex; gap:10px; z-index:1000;">
+  <% if (!userId) { %>
+    <a href="/login">
+      <button style="padding:8px 15px;">Login</button>
+    </a>
+
+    <a href="/register">
+      <button style="padding:8px 15px;">Register</button>
+    </a>
+  <% } else { %>
+    <a href="/bookings/my">
+      <button style="padding:8px 15px;">My Bookings</button>
+    </a>
+
+    <a href="/logout">
+      <button style="padding:8px 15px;">Logout</button>
+    </a>
+  <% } %>
+</div>
+
+<!-- 🔐 AUTH BUTTONS (ONLY ONCE) -->
+<div style="position:absolute; top:20px; right:30px; display:flex; gap:10px; z-index:1000;">
+  <% if (!userId) { %>
+    <a href="/login">
+      <button style="padding:8px 15px;">Login</button>
+    </a>
+
+    <a href="/register">
+      <button style="padding:8px 15px;">Register</button>
+    </a>
+  <% } else { %>
+    <a href="/bookings/my">
+      <button style="padding:8px 15px;">My Bookings</button>
+    </a>
+
+    <a href="/logout">
+      <button style="padding:8px 15px;">Logout</button>
+    </a>
+  <% } %>
+</div>
+
+<div class="movie-detail" style="text-align:center; margin-top:80px;">
+  
+  <!-- 🎬 POSTER -->
+  <img 
+    src="/uploads/<%= movie.poster %>" 
+    alt="<%= movie.title %> poster"
+    style="width:250px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.5);"
+  >
+
+  <!-- 🎥 TITLE -->
+  <h2 style="margin-top:20px;"><%= movie.title %></h2>
+
+  <!-- 📝 STORY -->
+  <p style="max-width:600px; margin:10px auto;">
+    <%= movie.story_line %>
+  </p>
+
+  <!-- 🎟 SHOWS -->
+  <h3 style="margin-top:30px;">Show Timings</h3>
+
+ <% if (!movie.shows || movie.shows.length === 0) { %>
+    <p style="color:red;">No shows available 😢</p>
+  <% } else { %>
+    <ul style="list-style:none; padding:0;">
+      <% movie.shows.forEach(show => { %>
+        <li style="margin:15px 0; padding:15px; border:1px solid #ccc; border-radius:10px;">
+          
+          <strong><%= show.theatre %></strong>  
+          - Screen <%= show.screen_no %>  
+          - <%= show.start_time %>
+
+          <br><br>
+
+          <a href="/seats/<%= show.show_id %>">
+            <button style="padding:8px 15px; background:red; color:white; border:none; border-radius:6px;">
+              Book Seats
+            </button>
+          </a>
+
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+</div>
